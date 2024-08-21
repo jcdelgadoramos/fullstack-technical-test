@@ -18,6 +18,7 @@ dist/
 *.swo
 
 /env/
+/venv/
 .python-version
 *.sqlite3
 cov.xml
