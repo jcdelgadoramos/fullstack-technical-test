@@ -1,7 +1,29 @@
 from rest_framework import viewsets
 
-from animals.models import Animal
-from animals.serializers import AnimalSerializer
+from animals.models import AdoptionStatus, Animal, AnimalType
+from animals.serializers import (
+    AdoptionStatusSerializer,
+    AnimalSerializer,
+    AnimalTypeSerializer,
+)
+
+
+class AdoptionStatusViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for model AdoptionStatus
+    """
+
+    queryset = AdoptionStatus.objects.all()
+    serializer_class = AdoptionStatusSerializer
+
+
+class AnimalTypeViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for model AnimalType
+    """
+
+    queryset = AnimalType.objects.all()
+    serializer_class = AnimalTypeSerializer
 
 
 class AnimalViewSet(viewsets.ModelViewSet):

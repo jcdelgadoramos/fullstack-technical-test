@@ -1,11 +1,11 @@
-from rest_framework import serializers 
+from rest_framework import serializers
 
 from animals.models import AdoptionStatus, AnimalType, Animal
 
 
 class AdoptionStatusSerializer(serializers.HyperlinkedModelSerializer):
     """
-    Serializer for model AdoptionStatus 
+    Serializer for model AdoptionStatus
     """
 
     class Meta:

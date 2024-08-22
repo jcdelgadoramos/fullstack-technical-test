@@ -14,9 +14,7 @@ def create_groups(apps, schema_editor):
     This migration creates the two basic user groups.
     """
 
-    Group.objects.bulk_create(
-        [Group(name=group_name) for group_name in GROUP_NAMES]
-    )
+    Group.objects.bulk_create([Group(name=group_name) for group_name in GROUP_NAMES])
 
 
 class Migration(migrations.Migration):

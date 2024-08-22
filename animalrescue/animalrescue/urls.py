@@ -16,8 +16,25 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from rest_framework import routers
+
+from adoptions.views import AdoptionViewSet, AdoptionStateViewSet
+from animals.views import AdoptionStatusViewSet, AnimalTypeViewSet, AnimalViewSet
+from people.views import AdoptantViewSet, VolunteerViewSet
+
+router = routers.DefaultRouter()
+router.register(r"adoptions", AdoptionViewSet)
+router.register(r"adoption-states", AdoptionStateViewSet)
+router.register(r"adoption-statuses", AdoptionStatusViewSet)
+router.register(r"animals", AnimalViewSet)
+router.register(r"animal-types", AnimalTypeViewSet)
+router.register(r"adoptants", AdoptantViewSet, basename="adoptant")
+router.register(r"volunteers", VolunteerViewSet, basename="volunteer")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include(router.urls)),
+    path("api/", include("rest_framework.urls", namespace="rest_framework")),
 ]
