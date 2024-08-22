@@ -1,6 +1,21 @@
 from django.db import models
 
 
+class AdoptionStatus(models.Model):
+    """
+    Class for AdoptionStatus model.
+    Indicates the adoption status of an Animal
+    """
+
+    status = models.CharField("Status", max_length=255)
+    creation_date = models.DateTimeField("Creation date", auto_now_add=True)
+    modification_date = models.DateTimeField("Modification date", auto_now=True)
+
+    class Meta:
+        verbose_name = "Adoption status"
+        verbose_name_plural = "Adoption statuses"
+
+
 class AnimalType(models.Model):
     """
     Class for AnimalType model.
@@ -15,21 +30,6 @@ class AnimalType(models.Model):
     class Meta:
         verbose_name = "Animal type"
         verbose_name_plural = "Animal types"
-
-
-class AdoptionStatus(models.Model):
-    """
-    Class for AdoptionStatus model.
-    Indicates the adoption status of an Animal
-    """
-
-    status = models.CharField("Status", max_length=255)
-    creation_date = models.DateTimeField("Creation date", auto_now_add=True)
-    modification_date = models.DateTimeField("Modification date", auto_now=True)
-
-    class Meta:
-        verbose_name = "Adoption status"
-        verbose_name_plural = "Adoption statuses"
 
 
 class Animal(models.Model):
