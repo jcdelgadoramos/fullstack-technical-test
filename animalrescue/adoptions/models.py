@@ -1,7 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 from animals.models import Animal
-from people.models import User
 
 
 class AdoptionState(models.Model):
@@ -31,13 +31,13 @@ class Adoption(models.Model):
         on_delete=models.CASCADE,
     )
     adoptant = models.ForeignKey(
-        User,
+        get_user_model(),
         verbose_name="Adoptant",
         on_delete=models.CASCADE,
         related_name="adoptions",
     )
     volunteer = models.ForeignKey(
-        User,
+        get_user_model(),
         verbose_name="Volunteer",
         on_delete=models.CASCADE,
         related_name="adoptions_registered",

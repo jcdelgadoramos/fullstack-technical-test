@@ -6,6 +6,8 @@ import django.utils.timezone
 from django.contrib.auth.models import Group
 from django.db import migrations, models
 
+from animalrescue.constants import GROUP_NAMES
+
 
 def create_groups(apps, schema_editor):
     """
@@ -13,10 +15,7 @@ def create_groups(apps, schema_editor):
     """
 
     Group.objects.bulk_create(
-        [
-            Group(name="Volunteer"),
-            Group(name="Adopter"),
-        ]
+        [Group(name=group_name) for group_name in GROUP_NAMES]
     )
 
 

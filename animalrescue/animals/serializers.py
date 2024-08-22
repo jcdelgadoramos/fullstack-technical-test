@@ -23,7 +23,7 @@ class AnimalTypeSerializer(serializers.HyperlinkedModelSerializer):
         fields = ["name"]
 
 
-class AnimalSerizlier(serializers.HyperlinkedModelSerializer):
+class AnimalSerializer(serializers.HyperlinkedModelSerializer):
     """
     Serializer for model Animal
     """
