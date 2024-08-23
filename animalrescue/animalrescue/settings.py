@@ -59,7 +59,9 @@ LOCAL_APPS = [
     "people",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework_simplejwt",
+]
 
 INSTALLED_APPS = INSTALLED_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -132,6 +134,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # User setup
 
 AUTH_USER_MODEL = "people.User"
+
+
+# Django Rest Framework
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 
 # Internationalization
