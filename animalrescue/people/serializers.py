@@ -37,4 +37,5 @@ class VolunteerSerializer(UserSerializer):
         group_id = Group.objects.get(name=VOLUNTEER_GROUP_NAME).id
         validated_data["groups"] = [group_id,]
         validated_data["username"] = validated_data["email"]
+        validated_data["is_staff"] = True
         return super().create(validated_data)

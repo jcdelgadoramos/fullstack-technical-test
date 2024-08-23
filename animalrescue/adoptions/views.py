@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from adoptions.models import Adoption, AdoptionState
 from adoptions.serializers import AdoptionSerializer, AdoptionStateSerializer
@@ -20,3 +21,4 @@ class AdoptionViewSet(viewsets.ModelViewSet):
 
     queryset = Adoption.objects.all()
     serializer_class = AdoptionSerializer
+    permission_classes = [IsAuthenticated]
