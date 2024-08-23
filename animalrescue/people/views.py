@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group
 from rest_framework import viewsets
 
 from animalrescue.constants import ADOPTANT_GROUP_NAME, VOLUNTEER_GROUP_NAME
-from people.serializers import UserSerializer
+from people.serializers import AdoptantSerializer, VolunteerSerializer
 
 
 class AdoptantViewSet(viewsets.ModelViewSet):
@@ -13,7 +13,7 @@ class AdoptantViewSet(viewsets.ModelViewSet):
 
     adoptant_group = Group.objects.get(name=ADOPTANT_GROUP_NAME)
     queryset = adoptant_group.user_set.all()
-    serializer_class = UserSerializer
+    serializer_class = AdoptantSerializer
 
 
 class VolunteerViewSet(viewsets.ModelViewSet):
@@ -23,4 +23,4 @@ class VolunteerViewSet(viewsets.ModelViewSet):
 
     volunteer_group = Group.objects.get(name=VOLUNTEER_GROUP_NAME)
     queryset = volunteer_group.user_set.all()
-    serializer_class = UserSerializer
+    serializer_class = VolunteerSerializer

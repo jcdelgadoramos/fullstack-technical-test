@@ -8,7 +8,7 @@ from animals.serializers import (
 )
 
 
-class AdoptionStatusViewSet(viewsets.ModelViewSet):
+class AdoptionStatusViewSet(viewsets.ReadOnlyModelViewSet):
     """
     ViewSet for model AdoptionStatus
     """
@@ -17,7 +17,7 @@ class AdoptionStatusViewSet(viewsets.ModelViewSet):
     serializer_class = AdoptionStatusSerializer
 
 
-class AnimalTypeViewSet(viewsets.ModelViewSet):
+class AnimalTypeViewSet(viewsets.ReadOnlyModelViewSet):
     """
     ViewSet for model AnimalType
     """

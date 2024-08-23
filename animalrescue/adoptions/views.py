@@ -4,7 +4,7 @@ from adoptions.models import Adoption, AdoptionState
 from adoptions.serializers import AdoptionSerializer, AdoptionStateSerializer
 
 
-class AdoptionStateViewSet(viewsets.ModelViewSet):
+class AdoptionStateViewSet(viewsets.ReadOnlyModelViewSet):
     """
     ViewSet for model AdoptionState
     """
