@@ -39,3 +39,8 @@ class VolunteerSerializer(UserSerializer):
         validated_data["username"] = validated_data["email"]
         validated_data["is_staff"] = True
         return super().create(validated_data)
+
+
+class SignInSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=255, required=True)
+    password = serializers.CharField(max_length=255, required=True, write_only=True)
